@@ -1,0 +1,115 @@
+using System;
+class HelloWorld {
+  static void Main() {
+    string name;
+    int idade;
+    
+    Console.WriteLine("Escreva seu nome")
+    name = Console.ReadLine();
+    Console.WriteLine("Qual sua idade ?")
+    idade = Console.ReadLine();
+    
+    string CartaoVacina, sintomas, Contato,RetornoViagem;
+    
+    Console.WriteLine("Responda com Sim ou Não")
+     Console.WriteLine("")
+
+    Console.WriteLine("Seu cartão de vacina está em dia ? ")
+        CartaoVacina = ToUpper(Console.ReadLine());
+    Console.WriteLine("Teve alguns dos sintomas recentemente ? (Dor de cabeça, febre, náusea, dor articular, gripe ?")
+        sintomas = Console.ReadLine();
+    Console.WriteLine("Teve contato com pessoas com sintomas gripais nos últimos dias?")
+        Contato = Console.ReadLine();
+    Console.WriteLine("Você está retornando de viagem realizada no exterior?")
+        RetornoViagem = Console.ReadLine();
+        
+        int cont = 0;
+        do
+        {
+            if(CartaoVacina == "NÃO")
+            {
+                   risco +=10;
+            }else if(CartaoVacina == "NÃO")
+            {
+                 risco +=0;
+            }else
+            {
+                Console.WriteLine("Digite SIM ou NÃO ")
+                CartaoVacina = ToUpper(Console.ReadLine());
+            }
+            
+            if(sintomas == "SIM")
+            {
+                   risco +=10;
+            }else if(sintomas == "NÃO")
+            {
+                 risco +=0;
+            }else
+            {
+                Console.WriteLine("Digite SIM ou NÃO ")
+                sintomas = ToUpper(Console.ReadLine());
+            }
+            
+             if(Contato == "SIM")
+            {
+                   risco +=10;
+            }else if(Contato == "NÃO")
+            {
+                 risco +=0;
+            }else
+            {
+                Console.WriteLine("Digite SIM ou NÃO ")
+                Contato = ToUpper(Console.ReadLine());
+            }
+             if(RetornoViagen == "SIM")
+            {
+                   risco +=10;
+            }else if(RetornoViagen == "NÃO")
+            {
+                 risco +=0;
+            }else
+            {
+                Console.WriteLine("Digite SIM ou NÃO ")
+                RetornoViagen = ToUpper(Console.ReadLine());
+            }
+            cont++;
+            if(cont == 1)
+            {
+                Console.WriteLine("Não Foi possivel realizar o diagnostico."+"\n Gentileza procurar ajuda medica caso apareça algum sintoma.")
+            }
+        }while(cont <= 1)
+        
+        risco = risco/2;
+        Console.WriteLine("A sua chance de contaminação é de: "+risco+"%")
+            
+        string orientacaoFinal;
+        
+        if(risco <= 30)
+        {
+           orientacaoFinal= Console.WriteLine("Paciente sob observação. Caso aplique algum sintoma, gentileza buscar assistência médica")
+        }else if(risco <=60)
+        {
+            orientacaoFinal= Console.WriteLine("Paciente com risco de estar infectado. Gentileza aguardar em lockdown por 02 dias para ser acompanhado.")
+        }else if(risco <= 89)
+        {
+           orientacaoFinal= Console.WriteLine("Paciente com alto risco de estar infectado. Gentileza aguardar em lockdown por 05 dias para ser acompanhado.")
+        }else if(risco >= 90)
+        {
+          orientacaoFinal= "Paciente crítico! Gentileza aguardar em lockdown por 10 dias para ser acompanhado" 
+        }
+        
+        
+        if(RetornoViagen == "SIM"){
+            Console.WriteLine("Você ficará de observação por 5 dias.")
+        }
+       
+       
+       
+       Console.WriteLine("Nome: "+name+"\n idade: "+idade
+       +"\n cartão de vacina está em dia ?"+CartaoVacina
+       +"\n teve sintomas recentemente"+sintomas+
+       "\n teve contato com pessoas infectadas? "+contato
+       +"\n retornando de viagem? "+ RetornoViagen
+       +"\n Você tem "+risco+"%"+" de chance de estar infectado."
+       +"\n Orientação: "+orientacaoFinal
+       )
